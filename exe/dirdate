@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require "dirdate"
+input_array = ARGV
+
+helper = Helper.new
+puts '-' * 30
+puts "Generate project folder"
+puts '-' * 30
+puts "Created By wisemonkey"
+puts '-' * 30
+
+# when a user enters command line arguments
+# dont ask for folder name
+if input_array.length > 0
+  folder_name = input_array.join(" ")
+else
+  print "Enter Folder name: "
+  folder_name = gets.chomp
+end
+
+if helper.create_project(folder_name)
+  puts '-' * 30
+  puts "Created folder: #{helper.folder_name}"
+  puts '-' * 30
+end
